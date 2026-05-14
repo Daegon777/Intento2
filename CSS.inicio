@@ -1,0 +1,144 @@
+/* 1. CONFIGURACIÓN BASE Y RESET */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap');
+
+:root {
+    --edu-navy: #1a2a3a;
+    --edu-slate: #f4f7f9;
+    --edu-gold: #b39359;
+    --edu-text: #2d3748;
+    --edu-white: #ffffff;
+}
+
+* {
+    box-sizing: border-box; /* Crucial para que el padding no rompa el ancho */
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--edu-slate);
+    color: var(--edu-text);
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+/* 2. HEADER Y LOGO ADAPTABLE */
+header {
+    background-color: var(--edu-navy);
+    color: var(--edu-white);
+    padding: 2em 1em;
+    text-align: center;
+    border-bottom: 4px solid var(--edu-gold);
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Tamaño fluido según pantalla */
+}
+
+/* 3. NAVEGACIÓN RESPONSIVA */
+.navbar {
+    background-color: var(--edu-white);
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que los links bajen si no caben */
+}
+
+.nav-links a, .dropbtn {
+    color: var(--edu-navy);
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: 0.3s;
+    background: none;
+    border: none;
+}
+
+/* 4. CONTENIDO PRINCIPAL */
+main {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: clamp(15px, 5vw, 40px);
+    background-color: var(--edu-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Diseño de servicios en columnas (Desktop) */
+#servicios {
+    display: flex;
+    gap: 20px;
+    flex-direction: column; /* Por defecto vertical (móvil) */
+}
+
+/* 5. MEDIA QUERIES (AJUSTES PARA COMPUTADORAS) */
+@media (min-width: 768px) {
+    #servicios {
+        flex-direction: row; /* Horizontal en PC */
+    }
+
+    #servicios div {
+        flex: 1; /* Ambas columnas miden lo mismo */
+    }
+
+    .nav-links a, .dropbtn {
+        padding: 20px 25px;
+        font-size: 0.9rem;
+    }
+}
+
+/* 6. DETALLES DE INTERFAZ */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--edu-white);
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--edu-gold);
+}
+
+.show { display: block; }
+
+.redes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.redes a {
+    padding: 10px 20px;
+    background-color: var(--edu-navy);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    flex: 1 1 150px; /* Se estiran en móvil, se alinean en PC */
+    text-align: center;
+}
+
+footer {
+    padding: 2em;
+    text-align: center;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
